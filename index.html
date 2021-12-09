@@ -1,0 +1,56 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>无标题</title>
+        <script type="text/javascript">
+        function sum(obj) {
+var z = document.getElementById("z");       <!-- 挂牌价 -->
+            var a = document.getElementById("a");   <!-- 网签价 -->
+            var b = document.getElementById("b");   <!-- 贷款 -->
+            var c = document.getElementById("c");   <!-- 还款时间 -->
+            var n = document.getElementById("n");   <!-- 税费 -->
+n.value=(parseInt(a.value)-190)*0.05046+(parseInt(a.value)/2*0.0192)+parseInt(a.value)*0.014425+parseInt(z.value)*0.018
+all.value=parseInt(z.value)+parseInt(n.value);
+// if(a.value!='')
+// {
+// y.value=parseInt(a.value);
+// h.value=parseInt(z.value)-parseInt(a.value);
+// }
+if(a.value!=''&&b.value!='')
+{
+y.value=all.value-parseInt(b.value);
+}
+if(a.value!=''&&b.value!=''&&c.value!='')
+{
+y.value=all.value-parseInt(b.value);
+h.value=(0.0539/12*parseInt(b.value)*10000*(0.0539/12+1)**parseInt(c.value))/((1+0.0539/12)**parseInt(c.value)-1);
+x.value=h.value*360/10000;
+}
+        }
+        </script>
+    </head>
+    <body>
+挂牌价：
+<input type="text" id="z" onkeyup="sum(this);" />
+网签价：
+<input type="text" id="a" onkeyup="sum(this);" />
+贷款：
+<input type="text" id="b" onkeyup="sum(this);" />
+还款时间(月）：
+<input type="text" id="c" onkeyup="sum(this);" />
+
+
+总价：
+<input type='text' id='all' style="border:0px solid white; width:50px" />
+过户首付：
+<input type='text' id='y' style="border:0px solid white; width:50px" />
+税费+中介费
+<input type='text' id='n' style="border:0px solid white; width:30px" />
+月供：
+<input type='text' id='h' style="border:0px solid white; width:50px" />
+还款总额：
+<input type='text' id='x' style="border:0px solid white; width:50px" />
+
+    </body>
+
+</html>
